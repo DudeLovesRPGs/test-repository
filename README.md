@@ -1,2 +1,2 @@
-# test-repository
-Kalob is an okay teacher. I'll leave him an okay review.
+# Project Repository
+This is a collection of projects from school, and other smaller independent projects I've done on my own
