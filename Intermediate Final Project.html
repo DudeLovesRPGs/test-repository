@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWAPI Character Randomizer</title>
+</head>
+<body>
+    
+    <h3 id = "top-text">Click the button for a random Star Wars Character!</h3>
+    <button id = "char-button">Click here</button>
+    
+
+
+
+
+
+    <script>
+        const characterName = document.getElementById("top-text");
+        const Button = document.getElementById("char-button");
+        
+        Button.addEventListener('click', async function(){
+            let name;
+            let temp;
+            let moviesTemp;
+            let homeworld;
+            const movies = [];
+            await fetch(`https://swapi.dev/api/people/${String(randomNum())}/`)
+                .then(response => response.json())
+                .then(data => {
+                    name = data.name;
+                    temp = data.homeworld;
+                    moviesTemp = data.films;
+            })
+        
+            await fetch(temp)
+                .then(response => response.json())
+                .then(data => {
+                    homeworld = data.name;
+
+                })
+
+           await Promise.all(moviesTemp.map(movie =>
+                fetch(movie)
+                    .then(response => response.json())
+                    .then(data => {
+                        movies.push(data.title)
+                 })
+            
+            ))
+            
+        
+            characterName.innerText = name.concat(` is from ${homeworld} and has been in ${String(movies.length)} movies! `);
+        
+            
+        })
+
+
+        function randomNum(){
+            return Math.floor((Math.random() * 100/1.25)+3); 
+        }
+    </script>
+</body>
+</html>
