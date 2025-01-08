@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Roboto'
+}
+
+.hero{
+    margin: 0 auto;
+    padding: 50px 0;
+    background-color: #23424A;
+}
+
+.hero-content{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.hero-text{
+    width: 60%;
+}
+
+.hero-content h1{
+    margin: 0;
+    color: white;
+    font-size: 48px;
+    font-weight: black;
+}
+
+.hero-content p{
+    color: white;
+    font-size: 21;
+    font-weight: normal;
+}
+
+.hero-content button{
+    font-size: 21px;
+    font-weight: bold;
+    border-radius: 20px;
+    border-color: transparent;
+}
